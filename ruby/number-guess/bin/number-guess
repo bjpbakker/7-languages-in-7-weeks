@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/number_guess'
+require_relative '../lib/command_line_view'
+
+def main
+  view = CommandLineView.new
+  game = NumberGuess.new rand(10)
+  game.play view
+end
+
+main

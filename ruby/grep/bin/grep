@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+require_relative "../lib/grep"
+require_relative "../lib/terminal_printer"
+
+def main args
+  matcher, files = args.first, args.drop(1)
+
+  grep = Grep.new matcher
+  files.each do |file|
+    grep.match file, TerminalPrinter.new(file)
+  end
+end
+
+main ARGV
+
